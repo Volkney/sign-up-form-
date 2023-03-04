@@ -7,13 +7,15 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box ;
+    
 }
 
 /* svg starts */
 
-#amores {
+#amores,.form-container{
     border: 1px solid black;
     margin-top: 150px;
+    
 }
 
 #kite {
@@ -36,13 +38,15 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 3px;
 }
-
-/* letter J */
-
-/* letter J ends */
+/* forms */
 
 form {
-    display: grid;
-
+    display: grid
 }
+.form-container{
+    padding: 100px;
+}
+
+/* forms end */
