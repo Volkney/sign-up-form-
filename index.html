@@ -112,23 +112,35 @@
         
     <!-- svg ends -->
     
-    <div class="form-container">
-    <form action=""> Sign Up
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email"><br>
-        <label for="pnumber">Phone Number</label>
-        <input type="text" id="pnumber" name="pnumber"><br>
-        <label for="passwrd">Password</label>
-        <input type="text" id="passwrd" name="passwrd"><br>
-        <label for="cpasswrd">Confirm Password</label>
-        <input type="text" id="cpasswrd" name="cpasswrd"><br>
-        <input type="submit" value="Create Account">
+    <form class="form-container">
+        <div class="form-item column1">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+        </div>
+        <div class="form-item column2">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Enter your last name">
+        </div>
+        <div class="form-item column1">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-item column2">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-item column1">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <div class="form-item column2">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
+        </div>
+        <input type="submit" value="Create Account" class="account">
         <div>Already have an account? Log in</div>
-    </form>
+      </form>
+        
     </div>
 
 </div>
