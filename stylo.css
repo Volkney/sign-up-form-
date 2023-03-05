@@ -47,10 +47,9 @@ html {
     grid-gap: 20px;
     padding: 100px;
     position: relative;
-    left: -400px;
     border: 1px solid black;
     box-shadow: 10px 10px 5px 12px rgba(0, 0, 0, 0.4);
-    width: 700px;
+    background-color: #302E42;
 }
 
 .column1 {
@@ -66,18 +65,60 @@ html {
 label, input {
     width: 100%;
   }
+  
+ .form-item {
+   position:relative;
+   width: 250px;
+ }
+ 
+ .form-item input {
+   width: 90%;
+   padding: 10px;
+   border: 1px solid #F4F4F4;
+   border-radius: 6px;
+   background-color: #302E42;
+   outline: none;
+   color: #F4F4F4;
+   font-size: 1em;
+   transition: 0.5s;
+ }
+ 
+  .form-item label {
+    position: absolute;
+    left: 0%;
+    padding: 10px;
+    pointer-events: 1em;
+    color: rgba(255,255,255,0.25);
+    text-transform: lowercase; 
+    transition: 0.5s;
+  }
+  
+  .form-item input:valid ~ label,
+  .form-item input:focus ~ label{
+    color: #00dfc4;
+    transform: translate(10px, -7px);
+    font-size: 0.8em;
+    padding: 0px 10px;
+    background: #302E42;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.1em;
+    width: 72px;
+    text-align: center;
+  }
+  
+    .form-item input:valid,
+  .form-item input:focus{
+    border: 1px solid #00dfc4;
+  }
+  
+  .form-item:nth-child(2n) input:valid ~ label,
+  .form-item:nth-child(2n) input:focus ~ label {
+    background: #00dfc4;
+    color: #302E42;
+    border-radius: 2px;
+    width: 140px;
+}
+  
+  
 /* forms end*/
-
-/* input style */
-.no-outline {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    background-color: #eee;
-  }
-
-  .no-outline:focus {
-    outline: none;
-  }
-/* input style ends */
