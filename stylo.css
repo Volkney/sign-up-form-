@@ -67,3 +67,17 @@ label, input {
     width: 100%;
   }
 /* forms end*/
+
+/* input style */
+.no-outline {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+  }
+
+  .no-outline:focus {
+    outline: none;
+  }
+/* input style ends */
