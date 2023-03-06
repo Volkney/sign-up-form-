@@ -1,6 +1,10 @@
 :root {
     --gray: #f5f5f5; 
+    font-family: 'Inter', sans-serif; }
+    @supports (font-variation-settings: normal) {
+    :root { font-family: 'Inter var', sans-serif; }
 }
+
 
 html {
     background-color: var(--gray);
@@ -16,7 +20,7 @@ html {
     position: relative;
     border-radius: 10px;
     margin-top: 130px;
-
+    font-family: 'Inter';
 }
 
 #kite {
