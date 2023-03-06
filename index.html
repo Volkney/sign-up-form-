@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylo.css">
+    <!-- HTML in your document's head -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Document</title>
 </head>
 <body>
@@ -116,7 +119,7 @@
       <form class="form-container">
           <div class="text header">Hello there</div>
           <div class="form-item column1">
-            <input type="text" id="fname" name="fname" required='required'>
+            <input type="text" id="fname" name="fname" required='required' >
             <label for="fname">First Name</label>
           </div>
           <div class="form-item column2">
@@ -131,13 +134,13 @@
             <input type="text" id="phone" name="phone" required='required'>
             <label for="phone">Phone Number</label>
           </div>
-          <div class="form-item column1">
-            <input type="password" id="password" name="password" required='required'>
+          <div class="form-item column1" >
+            <input type="password" id="password" name="password" required='required' minlength="4" maxlength="16">
             <label for="password">Password</label>
           </div>
-          <div class="form-item column2">
+          <div class="form-item column2 confirm">
             <input type="password" id="confirm_password" name="confirm_password" required='required'>
-            <label for="confirm_password">Confirm Password</label>
+            <label for="confirm_password" >Confirm Password</label>
           </div>
           <input type="submit" value="Create Account" class="account" required='required'>
           <div class="text footer">Already have an account? Log in</div>
