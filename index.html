@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/12c3f54b83.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="big-container">
@@ -112,9 +113,18 @@
       </radialGradient>
       </defs>
       </svg>
-      
-        
     <!-- svg ends -->
+    <div class="box">
+      <div class="validation">
+        <ul>
+          <li class="lower">one lowercase character</li>
+          <li class="upper">one uppercase character</li>
+          <li class="number">one number</li>
+          <li class="special">one special character</li>
+          <li class="length">8 characters</li>
+        </ul>
+      </div>
+    </div>
     
       <form class="form-container">
           <div class="text header">Hello there</div>
@@ -137,6 +147,7 @@
           <div class="form-item column1" >
             <input type="password" id="password" name="password" required='required' minlength="4" maxlength="16">
             <label for="password">Password</label>
+            <span id="toggleBtn"></span>
           </div>
           <div class="form-item column2 confirm">
             <input type="password" id="confirm_password" name="confirm_password" required='required'>
@@ -151,6 +162,7 @@
 
 </div>
 
+<script src="logic.js"></script>
 
 </body>
 </html>
