@@ -314,3 +314,12 @@
     font-weight: bold;
 }
 
+/* link style */
+a {
+    color: #FFF3F6;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #FF6584;
+  }
