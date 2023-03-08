@@ -189,13 +189,30 @@
     width:100%;
     transition:800ms ease all;
   }
+  /* disable button */
+.account:disabled {
+    background: var(--gray);
+    color: #bfbfbf;
+    cursor: not-allowed;
+  }
   
+  form:invalid .account {
+    background: var(--gray);
+    color: #bfbfbf;
+    cursor: not-allowed;
+  }
+  
+  form:valid .account {
+    background: var(--button-color);
+    color: #fff;
+    cursor: pointer;
+  }
   /* button ends */
   
   
-   /* eye password */
-  
-  .form-container #toggleBtn {
+/* eye password */
+
+.form-container #toggleBtn {
     position: absolute;
     top: 5px;
     right: 10px;
@@ -210,18 +227,25 @@
     align-items: center;
   }
   
-  .form-container  #toggleBtn::before {
+  .form-container #toggleBtn:focus {
+    background: #FFF3F6;
+    color: #302E42;
+  }
+  
+  .form-container #toggleBtn::before {
     content: '\f070';
     font-family: fontAwesome;
   }
   
-  .form-container #toggleBtn.hide::before{
+  .form-container #toggleBtn.hide::before {
     content: '\f06e';
     font-family: fontAwesome;
   }
   /* password eye ends */
   
-  .validation {
+/* password eye ends */
+
+.validation {
     background-color: var(--green);
     padding: 10px;
     margin-top: 30px;
@@ -242,7 +266,8 @@
     font-size: 0.9em;
     transform: 0.5s;
   }
-  .validation ul li.valid{
+  
+  .validation ul li.valid {
     color: #FF6584;
   }
   
@@ -252,6 +277,7 @@
     width: 20px;
     height: 10px;
     display: inline-flex;
+    color: var(--blue);
   }
   
   .validation ul li.valid::before {
@@ -276,12 +302,11 @@
     transition-delay: 0s;
   }
 
-
 /* error handling */
 
 .error {
     position: absolute;
-    top: 38px;
+    top: 40px;
     left: 03px;
     font-size: 0.7em;
     color: var(--blue);

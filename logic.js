@@ -3,13 +3,6 @@ let username = document.getElementById('fname');
 let toggleBtn = document.getElementById('toggleBtn');
 let confirmPassword = document.getElementById('confirm_password');
 let form = document.querySelector('form');
-const formItems = document.querySelectorAll('.form-item');
-const newHeight = '55px'; // change this to the desired height
-
-// Get the form and submit button
-const formContainer = document.querySelector('.form-container');
-const submitBtn = document.querySelector('.account');
-
 
 //get list elements
 let lowerCase = document.getElementById('lower');
@@ -40,16 +33,16 @@ toggleBtn.onclick = function(){
     }
 }
 //change color of eye icon
-document.addEventListener('click', function(e){
-    var isClickInside = passwd.contains(e.target);
-    
-    if(!isClickInside){
-        toggleBtn.style.background = '#FFF3F6';
-        toggleBtn.style.color = '#302E42';
-    }
-
+// Add event listener to the password field
+passwd.addEventListener('focus', function(){
+    toggleBtn.style.background = '#FFF3F6';
+    toggleBtn.style.color = '#302E42';
 });
 
+passwd.addEventListener('blur', function(){
+    toggleBtn.style.background = '';
+    toggleBtn.style.color = '';
+});
 function checkPassword(data){
     const lowerRegEx = new RegExp('(?=.*[a-z])');
     const upperRegEx = new RegExp('(?=.*[A-Z])');
@@ -106,42 +99,28 @@ function checkPassword(data){
         hideBox.setAttribute('id','password-validation');
     }
 }
-
 // Add event listener to password input field
 passwd.addEventListener('input', function() {
     checkPassword(this.value);
-    formItems.forEach(formItem => {
-        formItem.style.height = newHeight;
-        formItem.style.transition = '4s ease';
-      });
 });
+
 
 //error handling
+const formItems = document.querySelectorAll('.form-item');
 
 
-form.addEventListener('submit', (e) =>{
-    let totalErrors = [];
-
-    if(username.value.trim() === " "){
-        totalErrors.push("username required");
-    }
-
-    if(totalErrors > 0){
-        e.preventDefault();
-        errors.toggleAttribute('hidden');
-        errors.innerHTML = totalErrors.join(', ');
-    }
-});
-
+// Get the form and submit button
+const formContainer = document.querySelector('.form-container');
+const submitBtn = document.querySelector('.account');
 
 //transition motion for tags
-function changeHeight(){
-    formItems.forEach(formItem => {
-        formItem.style.height = newHeight;
-      });
+const originalHeight = '45px';
+const newHeight = '55px'; // change this to the desired height
+
+function changeHeight(formItem, isExpanded) {
+  formItem.style.height = isExpanded ? newHeight : originalHeight;
+  formItem.style.transition = 'height 0.5s ease';
 }
-
-
 
 const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
@@ -159,28 +138,81 @@ function checkEmailFormat() {
   if (!emailRegex.test(emailValue)) {
     // Update error message and styling if email is not in the correct format
     emailError.textContent = 'Please enter a valid email address';
-    changeHeight();
+    changeHeight(emailInput.parentElement, true);
     emailError.style.display = 'inline-block';
   } else {
     // Hide error message if email is in the correct format
     emailError.style.display = 'none';
+    changeHeight(emailInput.parentElement, false);
   }
 }
 
 function checkPhoneFormat() {
   const phoneValue = phoneInput.value;
-  const phoneRegex = /^\d{10}$/;
+  const phoneRegex = /^\d*$/;
   
   if (!phoneRegex.test(phoneValue)) {
     // Update error message and styling if phone number is not in the correct format
+    phoneError.textContent = 'Please enter only numbers';
+    changeHeight(phoneInput.parentElement, true);
+    phoneError.style.display = 'inline-block';
+  } else if (phoneValue.length !== 10) {
+    // Update error message and styling if phone number is not the correct length
     phoneError.textContent = 'Please enter a valid 10-digit phone number';
-    changeHeight();
+    changeHeight(phoneInput.parentElement, true);
     phoneError.style.display = 'inline-block';
   } else {
     // Hide error message if phone number is in the correct format
     phoneError.style.display = 'none';
+    changeHeight(phoneInput.parentElement, false);
   }
 }
+//confirm password
+const error5 = document.querySelector('.error.cinco');
+
+confirmPassword.addEventListener('input', () => {
+    if (confirmPassword.value === '') {
+      error5.textContent = '';
+      error5.hidden = true;
+
+      return;
+    }
+    if (passwd.value !== confirmPassword.value) {
+      error5.textContent = 'Password does not match';
+      changeHeight(error5.parentElement, true);
+      error5.hidden = false;
+    } else {
+      error5.textContent = '';
+      error5.hidden = true;
+    }
+  });
+
+
+  //disable submit button
+
+  function checkFormValidity() {
+    const inputs = form.querySelectorAll('input');
+    for (let i = 0; i < inputs.length; i++) {
+      if (!inputs[i].checkValidity()) {
+        submitBtn.disabled = true;
+        return;
+      }
+    }
+    submitBtn.disabled = false;
+  }
+  
+  // Add event listeners to all form inputs
+  form.addEventListener('input', checkFormValidity);
+  
+  // Disable the submit button by default
+  submitBtn.disabled = true;
+  
+  
+  
+  
+  
+
+
 
   
   
